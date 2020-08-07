@@ -1,0 +1,79 @@
+$backgroundColor: #f7fbfe;
+$leftMenuColor: #ffffff;
+$linkColor: #1490d2;
+
+body {
+  font-family: "Exo 2", "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.left-menu {
+  background-color: $leftMenuColor;
+  width: 60px;
+  min-height: 100vh;
+  position: relative;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.left-menu-opener {
+  background-color: $leftMenuColor;
+  position: fixed;
+  padding: 10px 20px;
+  cursor: pointer;
+  bottom: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.left-menu-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.left-menu-icon {
+  color: black;
+  opacity: 0.8;
+  font-size: 20px !important;
+}
+
+.menu-item {
+  padding: 10px 0;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+.main-container {
+  background-color: $backgroundColor;
+  min-height: 100vh;
+}
+
+.header-component {
+  height: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.login-info {
+  max-width: 300px;
+  height: 60px;
+}
+
+.icon-up {
+  color: rgba(0, 0, 0, 0.54);
+  margin-right: 10px;
+}
+
+.link-color {
+  color: $linkColor !important;
+}
+
+.icon-info {
+  color: rgba(0, 0, 0, 0.54);
+  margin-right: 8px;
+}
