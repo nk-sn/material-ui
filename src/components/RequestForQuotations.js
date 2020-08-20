@@ -6,26 +6,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import KeyboardArrowUpOutlinedIcon from '@material-ui/icons/KeyboardArrowUpOutlined';
-import KeyboardArrowDownOutlinedIcon from '@material-ui/icons/KeyboardArrowDownOutlined';
 import FeaturedPlayListOutlinedIcon from '@material-ui/icons/FeaturedPlayListOutlined';
-import { makeStyles } from '@material-ui/core/styles'
-
-const useStyles = makeStyles((theme) => ({
-  noticeBox: {
-    display: 'flex',
-    [theme.breakpoints.down('sm')]: {
-      display: 'block',
-    },
-  },
-  noticeIcon: {
-    marginLeft: 20,
-    marginRight: 5,
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: 0,
-    },
-  },
-}));
+import PaperHeaderArrow from "./PaperHeaderArrow";
 
 const RequestForQuotations = ({data}) => {
 
@@ -39,44 +21,40 @@ const RequestForQuotations = ({data}) => {
     setState({...state, tableOpen: !tableOpen});
   }
 
-  const cellStyle = {
-    borderBottom: 'none',
-    verticalAlign: 'top',
-    width: '50%',
-    wordBreak: 'break-all',
-  };
-
-  const classes = useStyles();
-
   return (
-    <Paper elevation={0} style={{padding: '20px'}}>
-      <Box style={{padding: '10px 16px', cursor: 'pointer'}} display="flex" onClick={toggleTableOpen}>
-        {tableOpen && <KeyboardArrowUpOutlinedIcon className="icon-up" />}
-        {!tableOpen && <KeyboardArrowDownOutlinedIcon className="icon-up" />}
-        <Typography variant="subtitle1"><b>Запрос котировок в электронной форме</b></Typography>
+    <Paper elevation={0}>
+      <Box p={2}>
+        <Box py={1} px={2} className="cursor-pointer" display="flex" onClick={toggleTableOpen}>
+          <PaperHeaderArrow open={tableOpen} />
+          <Typography variant="subtitle1"><b>Запрос котировок в электронной форме</b></Typography>
+        </Box>
+        <Box display={tableOpen ? 'block' : 'none'}>
+          <Table>
+            <TableBody>
+              {data.map((item, key) => {
+                return (
+                    <TableRow key={key}>
+                      <TableCell className="table-cell-request">
+                        <Typography color="textSecondary">{item.name}</Typography>
+                      </TableCell>
+                      <TableCell className="table-cell-request">
+                        {item.name === 'Реестровый номер закупки' ? <Box display={{xs: 'block', md: 'flex'}} justify="space-between">
+                          <Typography color="textPrimary">{item.value}</Typography>
+                          <Box display="flex" style={{cursor: 'pointer'}}>
+                            <Box dislay="inline" ml={{sm: 0, md: 2}} mr={0.5}>
+                              <FeaturedPlayListOutlinedIcon />
+                            </Box>
+                            <Typography color="primary">Извещение</Typography>
+                          </Box>
+                        </Box> : <Typography color="textPrimary">{item.value}</Typography>}
+                      </TableCell>
+                    </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </Box>
       </Box>
-      <Table style={{display: tableOpen ? 'block' : 'none'}}>
-        <TableBody>
-          {data.map((item, key) => {
-            return (
-              <TableRow key={key}>
-                <TableCell style={cellStyle}>
-                  <Typography color="textSecondary">{item.name}</Typography>
-                </TableCell>
-                <TableCell style={cellStyle}>
-                  {item.name === 'Реестровый номер закупки' ? <Box className={classes.noticeBox} justify="space-between">
-                    <Typography color="textPrimary">{item.value}</Typography>
-                    <Box display="flex" style={{cursor: 'pointer'}}>
-                      <FeaturedPlayListOutlinedIcon className={classes.noticeIcon} />
-                      <Typography color="textPrimary" className="link-color">Извещение</Typography>
-                    </Box>
-                  </Box> : <Typography color="textPrimary">{item.value}</Typography>}
-                </TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
     </Paper>
   );
 };

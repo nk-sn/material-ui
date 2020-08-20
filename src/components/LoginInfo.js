@@ -9,12 +9,12 @@ const LoginInfo = ({user: {avatar, fullName, companyName}}) => {
   return (
     <Box>
       <Grid container alignItems="center" className="login-info">
-        <Grid item  style={{paddingRight: 8}} >
+        <Grid item component={Box} pr={1}>
           <Box display={{xs: 'none', sm: 'block'}}>
             <Avatar alt={fullName} src={avatar} />
           </Box>
         </Grid>
-        <Grid item style={{paddingRight: 8}} >
+        <Grid item component={Box} pr={1}>
           <Typography variant="subtitle1">
             {fullName}
           </Typography>

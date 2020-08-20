@@ -8,25 +8,11 @@ import PageBreadcrumbs from "./components/PageBreadcrumbs";
 import RequestForQuotations from "./components/RequestForQuotations";
 import PurchasingCommission from "./components/PurchasingCommission";
 import NoOffers from "./components/NoOffers";
-import Button from '@material-ui/core/Button';
-import {makeStyles} from "@material-ui/core/styles";
 import ApplicationReviewProtocol from "./components/ApplicationReviewProtocol";
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    marginRight: 16,
-    [theme.breakpoints.down('sm')]: {
-      marginRight: 0,
-      marginBottom: 16
-    },
-  },
-  buttonBox: {
-    display: 'inline',
-    [theme.breakpoints.down('sm')]: {
-      display: 'block',
-    },
-  }
-}));
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from "./theme";
+import classNames from 'classnames/bind';
+import FooterButtons from "./components/FooterButtons";
 
 function App() {
   const [state, setState] = React.useState({
@@ -36,8 +22,6 @@ function App() {
   const toggleLeftMenu = (isOpen) => {
     setState({ ...state, leftMenuOpen: !!isOpen } );
   };
-
-  const leftIndent = 61;
 
   const user = {
     avatar: '/images/avatar.png',
@@ -60,31 +44,28 @@ function App() {
     {name: 'Преимущества', value: 'Субъектам малого предпринимательства, социально ориентированным некоммерческим организациям'},
   ];
 
-  const classes = useStyles();
-
   return (
-    <React.Fragment>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <LeftMenu leftMenuOpen={state.leftMenuOpen} toggleLeftMenu={(isOpen) => toggleLeftMenu(isOpen)} />
-      <Box className="main-container" style={{marginLeft: state.leftMenuOpen ? leftIndent : null}}>
+      <Box className="main-container">
         <Header user={user} />
-        <Container maxWidth="lg">
-          <PageBreadcrumbs breadcrumbs={breadcrumbs} />
-          <h1>Рассмотрение заявок</h1>
-          <RequestForQuotations data={requestForQuotations} />
-          <PurchasingCommission />
-          <h3 style={{margin: '24px 0 16px 0'}}>Заявки</h3>
-          <NoOffers />
-          <ApplicationReviewProtocol />
-          <Box style={{marginTop: 32, marginBottom: 64, textAlign: 'right'}}>
-            <Box className={classes.buttonBox}>
-              <Button variant="outlined" className={classes.button}>Подписать и направить</Button>
+        <Box className={classNames('box-body', {indent: state.leftMenuOpen})}>
+          <Container maxWidth="lg">
+            <PageBreadcrumbs breadcrumbs={breadcrumbs} />
+            <h1>Рассмотрение заявок</h1>
+            <RequestForQuotations data={requestForQuotations} />
+            <PurchasingCommission />
+            <Box mt={3} mb={2}>
+              <h3>Заявки</h3>
             </Box>
-            <Button variant="outlined">Сохранить как черновик</Button>
-          </Box>
-        </Container>
+            <NoOffers />
+            <ApplicationReviewProtocol />
+            <FooterButtons />
+          </Container>
+        </Box>
       </Box>
-    </React.Fragment>
+    </ThemeProvider>
   );
 }
 

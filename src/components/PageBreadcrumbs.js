@@ -6,18 +6,19 @@ import Typography from '@material-ui/core/Typography';
 
 const PageBreadcrumbs = ({breadcrumbs}) => {
   const lastElement = breadcrumbs.length - 1;
+
   return (
-    <Box style={{margin: '30px 0'}}>
+    <Box my={4}>
       <Breadcrumbs separator=">" aria-label="breadcrumb">
         {breadcrumbs.map((item, index) => {
           if (index !== lastElement) {
             return (
-              <Link key={index} color="inherit" href={item.url}>
+              <Link key={index} color="textPrimary" href={item.url}>
                 {item.name}
               </Link>
             );
           } else {
-            return <Typography color="textPrimary" key={index}>{item.name}</Typography>;
+            return <Typography color="textSecondary" key={index}>{item.name}</Typography>;
           }
         })}
       </Breadcrumbs>

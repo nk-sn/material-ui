@@ -1,10 +1,7 @@
 $backgroundColor: #f7fbfe;
 $leftMenuColor: #ffffff;
-$linkColor: #1490d2;
-
-body {
-  font-family: "Exo 2", "Open Sans", Arial, Helvetica, sans-serif;
-}
+$leftIndent: 60px;
+$themeSpacing: 8px;
 
 .left-menu {
   background-color: $leftMenuColor;
@@ -16,12 +13,14 @@ body {
 }
 
 .left-menu-opener {
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  padding-top: 18px;
   background-color: $leftMenuColor;
-  position: fixed;
-  padding: 10px 20px;
+  position: absolute;
   cursor: pointer;
-  bottom: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -31,22 +30,7 @@ body {
   left: 0;
   width: 60px;
   cursor: pointer;
-  padding: 10px 0;
-}
-
-.left-menu-icon {
-  color: black;
-  opacity: 0.8;
-  font-size: 20px !important;
-}
-
-.menu-item {
-  padding: 10px 0;
-}
-
-.logo {
-  width: 30px;
-  height: 30px;
+  padding-bottom: 2*$themeSpacing;
 }
 
 .main-container {
@@ -54,8 +38,12 @@ body {
   min-height: 100vh;
 }
 
+.box-body.indent {
+  margin-left: $leftIndent;
+}
+
 .header-component {
-  height: 60px;
+  margin-left: $leftIndent;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -64,16 +52,33 @@ body {
   height: 60px;
 }
 
-.icon-up {
-  color: rgba(0, 0, 0, 0.54);
-  margin-right: 10px;
+.table-cell-request {
+  width: 50%;
+  word-break: break-word;
 }
 
-.link-color {
-  color: $linkColor !important;
+.icon-search {
+  padding: 0 2*$themeSpacing;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.icon-info {
-  color: rgba(0, 0, 0, 0.54);
-  margin-right: 8px;
+.box-search-inner {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-right: 2*$themeSpacing;
+  margin-left: 2*$themeSpacing;
+  width: 100%;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

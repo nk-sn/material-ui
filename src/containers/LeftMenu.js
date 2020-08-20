@@ -1,7 +1,6 @@
 import React from 'react';
 import {Drawer} from "@material-ui/core";
 import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
-import ArrowForwardOutlinedIcon from '@material-ui/icons/ArrowForwardOutlined';
 import DomainOutlinedIcon from '@material-ui/icons/DomainOutlined';
 import CreditCardOutlinedIcon from '@material-ui/icons/CreditCardOutlined';
 import Divider from "@material-ui/core/Divider";
@@ -10,57 +9,61 @@ import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneO
 import FolderOutlinedIcon from '@material-ui/icons/FolderOutlined';
 import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
+import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 
 const LeftMenu = ({leftMenuOpen, toggleLeftMenu}) => {
   const logo = '/images/logo.png';
 
   return (
     <React.Fragment>
+      {!leftMenuOpen && (
+          <div className="left-menu-opener" onClick={() => toggleLeftMenu(true)}>
+            <MenuOutlinedIcon color="primary" fontSize="large" />
+          </div>
+      )}
       <Drawer anchor="left" open={leftMenuOpen} variant="persistent" onClose={() => toggleLeftMenu(false)}>
         <div className="left-menu">
-          <div className="menu-item">
-            <img alt="РОСЭЛТОРГ" src={logo} className="logo" />
-          </div>
-          <div className="menu-item">
-            <h4>ГОС 2.0</h4>
-          </div>
-          <div className="menu-item">
-            <DomainOutlinedIcon className="left-menu-icon" />
-          </div>
-          <div className="menu-item">
-            <CreditCardOutlinedIcon className="left-menu-icon" />
-          </div>
 
-          <div style={{paddingTop: 10, paddingBottom: 10}}>
+          <Box py={1}>
+            <img alt="РОСЭЛТОРГ" src={logo} width={30} height={30} className="logo" />
+          </Box>
+          <Box py={1}>
+            <Typography variant="h6">ГОС 2.0</Typography>
+          </Box>
+          <Box py={1}>
+            <DomainOutlinedIcon color="primary" fontSize="large" />
+          </Box>
+          <Box py={1}>
+            <CreditCardOutlinedIcon color="primary" fontSize="large" />
+          </Box>
+
+          <Box py={1}>
             <Divider />
-          </div>
+          </Box>
 
-          <div className="menu-item">
-            <ShowChartOutlinedIcon className="left-menu-icon" />
-          </div>
-          <div className="menu-item">
-            <NotificationsNoneOutlinedIcon className="left-menu-icon" />
-          </div>
-          <div className="menu-item">
-            <FolderOutlinedIcon className="left-menu-icon" />
-          </div>
-          <div className="menu-item">
-            <AssignmentTurnedInOutlinedIcon className="left-menu-icon" />
-          </div>
-          <div className="menu-item">
-            <SettingsOutlinedIcon className="left-menu-icon" />
-          </div>
+          <Box py={1}>
+            <ShowChartOutlinedIcon color="primary" fontSize="large" />
+          </Box>
+          <Box py={1}>
+            <NotificationsNoneOutlinedIcon color="primary" fontSize="large" />
+          </Box>
+          <Box py={1}>
+            <FolderOutlinedIcon color="primary" fontSize="large" />
+          </Box>
+          <Box py={1}>
+            <AssignmentTurnedInOutlinedIcon color="primary" fontSize="large" />
+          </Box>
+          <Box py={1}>
+            <SettingsOutlinedIcon color="primary" fontSize="large" />
+          </Box>
 
           <div className="left-menu-button" onClick={ () => toggleLeftMenu(!leftMenuOpen) }>
-            <ArrowBackOutlinedIcon style={{ fontSize: 20, color: "lightgrey" }} />
+            <ArrowBackOutlinedIcon color="secondary" fontSize="large" />
           </div>
         </div>
       </Drawer>
-      {!leftMenuOpen && (
-        <div className="left-menu-opener" onClick={() => toggleLeftMenu(true)}>
-          <ArrowForwardOutlinedIcon style={{ fontSize: 20, color: "lightgrey" }} />
-        </div>
-      )}
     </React.Fragment>
   );
 }
