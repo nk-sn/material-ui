@@ -15,6 +15,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined';
 import Information from "./Information";
 import PaperHeaderArrow from "./PaperHeaderArrow";
+import Tooltip from '@material-ui/core/Tooltip';
 
 const ApplicationReviewProtocol = () => {
   const [state, setState] = React.useState({
@@ -42,7 +43,9 @@ const ApplicationReviewProtocol = () => {
                 <Grid item xs={12} sm={6}>
                   <Typography color="error" align="right">
                     10.04.2019 18:59:00 [GMT +3 Москва] &nbsp;
-                    <HelpRoundedIcon color="error" fontSize="small" />
+                    <Tooltip title="Время утверждения протокола рассмотрения заявок" placement="top">
+                      <HelpRoundedIcon color="error" fontSize="small" />
+                    </Tooltip>
                   </Typography>
                 </Grid>
               </Grid>
@@ -87,7 +90,9 @@ const ApplicationReviewProtocol = () => {
                   <Box mt={2} mb={1}>
                     <Typography color="textPrimary" mb={1}>
                       Дата подписания протокола&nbsp;
-                      <HelpRoundedIcon fontSize="small" color="primary" />
+                      <Tooltip title="Дата подписания протокола" placement="right">
+                        <HelpRoundedIcon fontSize="small" color="primary" />
+                      </Tooltip>
                     </Typography>
                     <TextField
                         placeholder="Введите дату"
