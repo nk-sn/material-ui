@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 
 const FooterButtons = () => {
     return (
-        <Box mt={4} mb={8} display="flex" justifyContent="flex-end">
+        <Box mt={4} pb={8} display="flex" justifyContent="flex-end">
             <Box>
                 <Box display={{xs: 'block', md: 'inline'}}>
                     <Button variant="outlined">Подписать и направить</Button>
