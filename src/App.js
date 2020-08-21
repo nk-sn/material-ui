@@ -38,7 +38,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <LeftMenu leftMenuOpen={state.leftMenuOpen} toggleLeftMenu={(isOpen) => toggleLeftMenu(isOpen)} />
+      <LeftMenu isOpen={state.leftMenuOpen} toggle={toggleLeftMenu} />
       <Main
           user={user}
           breadcrumbs={breadcrumbs}

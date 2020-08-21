@@ -8,7 +8,7 @@ import Search from "../components/Search";
 const useStyles = makeStyles((theme) => ({
   container: {
     marginLeft: 60,
-    borderBottom: 'border-bottom: 1px solid rgba(0, 0, 0, 0.12)',
+    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
   },
 }));
 

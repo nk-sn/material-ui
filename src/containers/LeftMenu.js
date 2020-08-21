@@ -26,17 +26,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LeftMenu = ({leftMenuOpen, toggleLeftMenu}) => {
+const LeftMenu = ({isOpen, toggle}) => {
   const logo = '/images/logo.png';
 
   const classes = useStyles();
 
   return (
     <React.Fragment>
-      {!leftMenuOpen && (
-          <LeftMenuOpener toggle={toggleLeftMenu} />
+      {!isOpen && (
+          <LeftMenuOpener toggle={toggle} />
       )}
-      <Drawer anchor="left" open={leftMenuOpen} variant="persistent" onClose={() => toggleLeftMenu(false)}>
+      <Drawer anchor="left" open={isOpen} variant="persistent" onClose={() => toggle(false)}>
         <Box className={classes.leftMenu}>
           <Box py={1}>
             <img alt="РОСЭЛТОРГ" src={logo} width={30} height={30} className="logo" />
@@ -71,7 +71,7 @@ const LeftMenu = ({leftMenuOpen, toggleLeftMenu}) => {
             <SettingsOutlinedIcon color="primary" fontSize="large" />
           </Box>
 
-          <LeftMenuCloser toggle={toggleLeftMenu} />
+          <LeftMenuCloser toggle={toggle} />
         </Box>
       </Drawer>
     </React.Fragment>
