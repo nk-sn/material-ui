@@ -1,18 +1,9 @@
 import React from 'react';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import LeftMenu from "./containers/LeftMenu";
-import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
-import Header from "./containers/Header";
-import PageBreadcrumbs from "./components/PageBreadcrumbs";
-import RequestForQuotations from "./components/RequestForQuotations";
-import PurchasingCommission from "./components/PurchasingCommission";
-import NoOffers from "./components/NoOffers";
-import ApplicationReviewProtocol from "./components/ApplicationReviewProtocol";
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from "./theme";
-import classNames from 'classnames/bind';
-import FooterButtons from "./components/FooterButtons";
+import Main from "./containers/Main";
 
 function App() {
   const [state, setState] = React.useState({
@@ -48,23 +39,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <LeftMenu leftMenuOpen={state.leftMenuOpen} toggleLeftMenu={(isOpen) => toggleLeftMenu(isOpen)} />
-      <Box className="main-container">
-        <Header user={user} />
-        <Box className={classNames('box-body', {indent: state.leftMenuOpen})}>
-          <Container maxWidth="lg">
-            <PageBreadcrumbs breadcrumbs={breadcrumbs} />
-            <h1>Рассмотрение заявок</h1>
-            <RequestForQuotations data={requestForQuotations} />
-            <PurchasingCommission />
-            <Box mt={3} mb={2}>
-              <h3>Заявки</h3>
-            </Box>
-            <NoOffers />
-            <ApplicationReviewProtocol />
-            <FooterButtons />
-          </Container>
-        </Box>
-      </Box>
+      <Main
+          user={user}
+          breadcrumbs={breadcrumbs}
+          requestForQuotations={requestForQuotations}
+          isMenuOpen={state.leftMenuOpen}
+      />
     </ThemeProvider>
   );
 }

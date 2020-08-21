@@ -8,6 +8,15 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import FeaturedPlayListOutlinedIcon from '@material-ui/icons/FeaturedPlayListOutlined';
 import PaperHeaderArrow from "./PaperHeaderArrow";
+import {makeStyles} from "@material-ui/core/styles";
+import PaperHeader from "./PaperHeader";
+
+const useStyles = makeStyles((theme) => ({
+  cell: {
+    width: '50%',
+    wordBreak: 'break-word',
+  }
+}));
 
 const RequestForQuotations = ({data}) => {
 
@@ -21,23 +30,25 @@ const RequestForQuotations = ({data}) => {
     setState({...state, tableOpen: !tableOpen});
   }
 
+  const classes = useStyles();
+
   return (
     <Paper elevation={0}>
       <Box p={2}>
-        <Box py={1} px={2} className="cursor-pointer" display="flex" onClick={toggleTableOpen}>
+        <PaperHeader onClick={toggleTableOpen}>
           <PaperHeaderArrow open={tableOpen} />
           <Typography variant="subtitle1"><b>Запрос котировок в электронной форме</b></Typography>
-        </Box>
+        </PaperHeader>
         <Box display={tableOpen ? 'block' : 'none'}>
           <Table>
             <TableBody>
               {data.map((item, key) => {
                 return (
                     <TableRow key={key}>
-                      <TableCell className="table-cell-request">
+                      <TableCell className={classes.cell}>
                         <Typography color="textSecondary">{item.name}</Typography>
                       </TableCell>
-                      <TableCell className="table-cell-request">
+                      <TableCell className={classes.cell}>
                         {item.name === 'Реестровый номер закупки' ? <Box display={{xs: 'block', md: 'flex'}} justify="space-between">
                           <Typography color="textPrimary">{item.value}</Typography>
                           <Box display="flex" style={{cursor: 'pointer'}}>

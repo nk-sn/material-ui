@@ -10,6 +10,7 @@ import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import GroupAddOutlinedIcon from '@material-ui/icons/GroupAddOutlined';
 import Grid from "@material-ui/core/Grid";
 import PaperHeaderArrow from "./PaperHeaderArrow";
+import PaperHeader from "./PaperHeader";
 
 const PurchasingCommission = () => {
   const [state, setState] = React.useState({
@@ -26,10 +27,10 @@ const PurchasingCommission = () => {
       <Box mt={3}>
         <Paper elevation={0}>
           <Box p={2}>
-            <Box py={1} px={2} className="cursor-pointer" display="flex" onClick={toggleInfoOpen}>
+            <PaperHeader onClick={toggleInfoOpen}>
               <PaperHeaderArrow open={infoOpen} />
               <Typography variant="subtitle1"><b>Закупочная комиссия</b></Typography>
-            </Box>
+            </PaperHeader>
             <Box ml={2} display={infoOpen ? 'block' : 'none'}>
               <Box mb={1}>
                 <Typography color="textPrimary">Наименование комиссии</Typography>

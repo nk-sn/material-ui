@@ -16,6 +16,7 @@ import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined'
 import Information from "./Information";
 import PaperHeaderArrow from "./PaperHeaderArrow";
 import Tooltip from '@material-ui/core/Tooltip';
+import PaperHeader from "./PaperHeader";
 
 const ApplicationReviewProtocol = () => {
   const [state, setState] = React.useState({
@@ -32,7 +33,7 @@ const ApplicationReviewProtocol = () => {
       <Box mt={3}>
         <Paper elevation={0}>
           <Box p={2}>
-            <Box py={1} px={2} display="flex" className="cursor-pointer" onClick={toggleInfoOpen}>
+            <PaperHeader onClick={toggleInfoOpen}>
               <Grid container>
                 <Grid item xs={12} sm={6}>
                   <Box display="flex">
@@ -49,7 +50,7 @@ const ApplicationReviewProtocol = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Box>
+            </PaperHeader>
             <Box ml={2} display={infoOpen ? 'block' : 'none'} >
               <Box mt={2}>
                 <Typography color="textPrimary">Генерация протокола</Typography>
