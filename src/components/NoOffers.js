@@ -6,7 +6,7 @@ import Information from "./Information";
 
 const NoOffers = () => {
   return (
-    <Paper elevation={0}>
+    <Paper>
         <Box p={2}>
             <Box ml={2}>
                 <Typography color="textPrimary">На участие в процедуре не подано ни одной заявки</Typography>

@@ -25,7 +25,7 @@ const PurchasingCommission = () => {
 
   return (
       <Box mt={3}>
-        <Paper elevation={0}>
+        <Paper>
           <Box p={2}>
             <PaperHeader onClick={toggleInfoOpen}>
               <PaperHeaderArrow open={infoOpen} />
@@ -52,7 +52,7 @@ const PurchasingCommission = () => {
                       <Button variant="contained" color="default"><CreateOutlinedIcon /></Button>
                     </Box>
                     <Box display="inline" ml={2}>
-                      <Button variant="outlined" color="default"><DeleteOutlinedIcon /></Button>
+                      <Button variant="contained"><DeleteOutlinedIcon /></Button>
                     </Box>
                     <Box display="inline" ml={2}>
                       <Button variant="contained" color="primary"><GroupAddOutlinedIcon /></Button>

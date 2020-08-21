@@ -9,7 +9,7 @@ const theme = createMuiTheme({
             light: 'rgba(56, 153, 215, 0.6)',
             main: 'rgba(56, 153, 215, 1)',
             dark: 'rgba(56, 153, 215, 1)',
-        }
+        },
     },
     typography: {
         fontFamily: '"Exo 2","Open Sans",Arial,Helvetica,sans-serif',
@@ -45,6 +45,10 @@ const theme = createMuiTheme({
             },
             outlined: {
                 padding: '8.5px',
+            },
+            contained: {
+                backgroundColor: 'white',
+                boxShadow: '0 2px 4px 0px rgba(0, 0, 0, 0.12)',
             }
         },
         MuiTableCell: {
@@ -59,6 +63,11 @@ const theme = createMuiTheme({
                 paddingBottom: '12px'
             }
         },
+        MuiPaper: {
+            'elevation1': {
+                boxShadow: '0 2px 4px 0px rgba(0, 0, 0, 0.12)'
+            }
+        }
     }
 });
 

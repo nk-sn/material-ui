@@ -33,7 +33,7 @@ const RequestForQuotations = ({data}) => {
   const classes = useStyles();
 
   return (
-    <Paper elevation={0}>
+    <Paper>
       <Box p={2}>
         <PaperHeader onClick={toggleTableOpen}>
           <PaperHeaderArrow open={tableOpen} />

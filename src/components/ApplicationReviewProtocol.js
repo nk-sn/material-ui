@@ -31,7 +31,7 @@ const ApplicationReviewProtocol = () => {
 
   return (
       <Box mt={3}>
-        <Paper elevation={0}>
+        <Paper>
           <Box p={2}>
             <PaperHeader onClick={toggleInfoOpen}>
               <Grid container>
@@ -78,7 +78,7 @@ const ApplicationReviewProtocol = () => {
                 <Grid item component={Box} xs={12} md={8} display={{xs: 'block', md: 'inline'}}>
                   <Box mt={{xs: 2, md: 0}}>
                     <Box display="inline" ml={{xs: 0, md: 2}}>
-                      <Button variant="outlined" color="default"><SaveAltOutlinedIcon /></Button>
+                      <Button variant="contained"><SaveAltOutlinedIcon /></Button>
                     </Box>
                     <Box display="inline" ml={2}>
                       <Button variant="contained" color="default"><AssignmentOutlinedIcon /></Button>
